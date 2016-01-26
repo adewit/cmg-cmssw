@@ -46,7 +46,7 @@
 #include "DataFormats/VertexReco/interface/VertexFwd.h"
 
 #include "JetMETCorrections/Algorithms/interface/L1FastjetCorrector.h"
-#include "JetMETCorrections/Objects/interface/JetCorrector.h"
+//#include "JetMETCorrections/Objects/interface/JetCorrector.h"
 
 #include "RecoMET/METAlgorithms/interface/METAlgo.h"
 #include "RecoMET/METAlgorithms/interface/PFSpecificAlgo.h"
@@ -115,7 +115,7 @@ namespace reco
     std::vector<edm::EDGetTokenT<reco::CandidateView > > srcLeptons_;
     int minNumLeptons_; // CV: option to skip MVA MET computation in case there are less than specified number of leptons in the event
     bool permuteLeptons_; // JS: option to calculate MVA MET for each combination of taking one lepton from each of the candidate views given by the input tags; if two input tags are identical, creates only combinations with the index of the former collection larger than the one of the later collection, e.g. (1, 0), (2, 0), but not (0, 0) or (1, 2)
-    edm::EDGetTokenT<edm::Handle<double> > srcRho_;
+    
 
     std::string correctorLabel_;
     bool isOld42_ ;
