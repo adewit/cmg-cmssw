@@ -16,13 +16,14 @@ PFMETProducerMVATauTau::PFMETProducerMVATauTau(const edm::ParameterSet& cfg)
   srcPFCandidatesView_ = consumes<reco::CandidateView>(cfg.getParameter<edm::InputTag>("srcPFCandidates"));
   srcVertices_     = consumes<reco::VertexCollection>(cfg.getParameter<edm::InputTag>("srcVertices"));
   srcLeptonsTags_ = cfg.getParameter<vInputTag>("srcLeptons");
+  consumes<double>(edm::InputTag(cfg.getParameter<edm::InputTag>("srcRho")));
   for(vInputTag::const_iterator it=srcLeptonsTags_.begin();it!=srcLeptonsTags_.end();it++) {
     srcLeptons_.push_back( consumes<reco::CandidateView >( *it ) );
   }
 
   minNumLeptons_   = cfg.getParameter<int>("minNumLeptons");
   permuteLeptons_  = cfg.getParameter<bool>("permuteLeptons");
-  srcRho_          = consumes<edm::Handle<double> >(cfg.getParameter<edm::InputTag>("srcRho"));
+ // srcRho_          = consumes<edm::Handle<double> >(cfg.getParameter<edm::InputTag>("srcRho"));
 
   globalThreshold_ = cfg.getParameter<double>("globalThreshold");
 
